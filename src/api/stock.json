@@ -1,0 +1,180 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "email": "barry@email.com",
+            "username": "barry",
+            "password": "abc123"
+        },
+        {
+            "id": 2,
+            "email": "tommy@email.com",
+            "username": "tommy",
+            "password": "abc123"
+        },
+        {
+            "id": 3,
+            "email": "austin@email.com",
+            "username": "austin",
+            "password": "abc123"
+        },
+        {
+            "id": 4,
+            "email": "ashon@email.com",
+            "username": "ashon",
+            "password": "abc123"
+        }
+    ],
+    "purchases": [
+        {
+            "id": 1,
+            "userId": 3,
+            "stockSymbol": "msft",
+            "sharesTotal": 100,
+            "date": "2020-06-17",
+            "purchasePrice": 194.14
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "stockSymbol": "msft",
+            "sharesTotal": 50,
+            "date": "2020-06-17",
+            "purchasePrice": 194
+        },
+        {
+            "id": 3,
+            "userId": 2,
+            "stockSymbol": "wmt",
+            "sharesTotal": 25,
+            "date": "2020-06-17",
+            "purchasePrice": 119.07
+        },
+        {
+            "id": 4,
+            "userId": 4,
+            "stockSymbol": "spy",
+            "sharesTotal": 30,
+            "date": "2020-06-17",
+            "purchasePrice": 311.69
+        },
+        {
+            "id": 5,
+            "userId": 4,
+            "stockSymbol": "wmt",
+            "sharesTotal": 50,
+            "date": "2020-06-16",
+            "purchasePrice": 118.87
+        },
+        {
+            "id": 6,
+            "userId": 3,
+            "stockSymbol": "spy",
+            "sharesTotal": 30,
+            "date": "2020-06-15",
+            "purchasePrice":  298.77
+        },
+        {
+            "id": 7,
+            "userId": 1,
+            "stockSymbol": "wmt",
+            "sharesTotal": 25,
+            "date": "2020-06-15",
+            "purchasePrice": 118.9
+        },
+        {
+            "id": 8,
+            "userId": 2,
+            "stockSymbol": "spy",
+            "sharesTotal": 75,
+            "date": "2020-06-16",
+            "purchasePrice": 298.77
+        },
+        {
+            "id": 9,
+            "userId": 1,
+            "stockSymbol": "spy",
+            "sharesTotal": 50,
+            "date": "2020-06-17",
+            "purchasePrice": 312.28
+        },
+        {
+            "id": 10,
+            "userId": 2,
+            "stockSymbol": "msft",
+            "sharesTotal": 25,
+            "date": "2020-06-17",
+            "purchasePrice": 194.81
+        },
+        {
+            "id": 11,
+            "userId": 3,
+            "stockSymbol": "wmt",
+            "sharesTotal": 75,
+            "date": "2020-06-17",
+            "purchasePrice": 119.33
+        },
+        {
+            "id": 12,
+            "userId": 4,
+            "stockSymbol": "msft",
+            "sharesTotal": 50,
+            "date": "2020-06-17",
+            "purchasePrice": 194.87
+        }
+    ],
+
+    "funds": [
+        {
+            "id": 1,
+            "name": "Bridgewater Associates",
+            "cik": "0001350694"
+        },
+        {
+            "id": 2,
+            "name": "Renaissance Technologies",
+            "cik": "0001037389"
+        },
+        {
+            "id": 3,
+            "name": "Man Group",
+            "cik": "0001637460"
+        },
+        {
+            "id": 4,
+            "name": "AQR Capital Management",
+            "cik": "0001167557"
+        },
+        {
+            "id": 5,
+            "name": "Two Sigma Investments",
+            "cik": "0001179392"
+        },
+        {
+            "id": 6,
+            "name": "Millennium Management",
+            "cik": "0001273087"
+        },
+        {
+            "id": 7,
+            "name": "Elliott Management",
+            "cik": "0001048445"
+        },
+        {
+            "id": 8,
+            "name": "BlackRock",
+            "cik": " 0001364742"
+        },
+        {
+            "id": 8,
+            "name": "Citadel",
+            "cik": "0001423053"
+        },
+        {
+            "id": 10,
+            "name": "Davidson Kempner Capital",
+            "cik": "0001595082"
+        }
+        
+    ]
+}

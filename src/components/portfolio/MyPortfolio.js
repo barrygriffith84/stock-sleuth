@@ -9,11 +9,14 @@ class MyPortfolio extends Component {
         stockPurchases: [],
         stockSymbols: [],
         username: "",
+        userId: null,
     }
 
 
     componentDidMount() {
-        // APIManager.getPortfolio(1)
+        // APIManager.getPortfolio(JSON.parse(localStorage.getItem("credentials")).userId
+
+        // )
         // .then((APIPurchases) => 
         // {   this.setState({
         //     stockPurchases: APIPurchases,
@@ -33,7 +36,7 @@ render () {
 
     return(
         <>
-        <h1>This is {this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s portfolio!</h1>
+        <h1>{this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s Portfolio</h1>
         <div className="test-container">
     <PortfolioTable purchases={this.state.stockPurchases}/>
         </div>

@@ -11,8 +11,9 @@ const APIManager = {
     },
     
     getPortfolioPrices(stockArray) {
-        return fetch(`https://marketdata.websol.barchart.com/getQuote.json?${APIKeys.barchartKey}=&symbols=${stockArray}&fields=fiftyTwoWkHigh%2CfiftyTwoWkHighDate%2CfiftyTwoWkLow%2CfiftyTwoWkLowDate`).then((r) => r.json())
+        return fetch(`https://marketdata.websol.barchart.com/getQuote.json?apikey=7c6ba6236e0b3e86299bb364c745ac21&symbols=${stockArray}&fields=fiftyTwoWkHigh%2CfiftyTwoWkHighDate%2CfiftyTwoWkLow%2CfiftyTwoWkLowDate`).then((r) => r.json())
     }
+
 }
 
 

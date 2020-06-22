@@ -7,16 +7,25 @@ class MyPortfolio extends Component {
     
     state = {
         stockPurchases: [],
+        stockSymbols: [],
         username: "",
     }
 
 
     componentDidMount() {
-        APIManager.getPortfolio("1").then((APIPurchases) => 
-        { console.log(APIPurchases); this.setState({
-            stockPurchases: APIPurchases,
-            username: APIPurchases[0].user.username
-        })})
+        // APIManager.getPortfolio(1)
+        // .then((APIPurchases) => 
+        // {   this.setState({
+        //     stockPurchases: APIPurchases,
+        //     username: APIPurchases[0].user.username,
+        //     stockSymbols: APIPurchases.map((stock) => stock.stockSymbol)})
+        // })
+
+        const stockArray = ["IBM","AMZN","GOOG"]
+
+        APIManager.getPortfolioPrices(stockArray).then((r) => console.log(r))
+
+        
        
     }
 

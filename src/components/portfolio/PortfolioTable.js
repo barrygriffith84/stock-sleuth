@@ -47,7 +47,9 @@ export default function CustomizedTables(props) {
           <TableRow>
             <StyledTableCell>Stock Symbol</StyledTableCell>
             <StyledTableCell align="right">Purchase Price</StyledTableCell>
-            <StyledTableCell align="right">Amount of Shares</StyledTableCell>
+            <StyledTableCell align="right">Current Price</StyledTableCell>
+            <StyledTableCell align="right">Gain/Loss</StyledTableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
@@ -57,7 +59,8 @@ export default function CustomizedTables(props) {
                 {row.stockSymbol}
               </StyledTableCell>
               <StyledTableCell align="right">{row.purchasePrice}</StyledTableCell>
-              <StyledTableCell align="right">{row.sharesTotal}</StyledTableCell>
+              <StyledTableCell align="right">{row.currentPrice}</StyledTableCell>
+          <StyledTableCell align="right">{(row.currentPrice - row.purchasePrice).toFixed(2)}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

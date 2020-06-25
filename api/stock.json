@@ -129,6 +129,30 @@
       "sharesTotal": 20,
       "date": "2020-06-23",
       "purchasePrice": 121.75
+    },
+    {
+      "stockSymbol": "aa",
+      "purchasePrice": 1231,
+      "sharesTotal": 11,
+      "date": "2020-06-25",
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "stockSymbol": "aa",
+      "purchasePrice": 1,
+      "sharesTotal": 1,
+      "date": "2020-06-25",
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "stockSymbol": "aa",
+      "purchasePrice": 1,
+      "sharesTotal": 1,
+      "date": "2020-06-01",
+      "userId": 1,
+      "id": 16
     }
   ],
   "funds": [

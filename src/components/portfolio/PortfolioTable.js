@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,33 +7,35 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import EditStockModal from './StockEditModal'
 
-const StyledTableCell = withStyles((theme: Theme) =>
-  createStyles({
-    head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    body: {
-      fontSize: 14,
-    },
-  }),
-)(TableCell);
 
-const StyledTableRow = withStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-      },
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+    width: 80,
+  },
+  body: {
+    fontSize: 14,
+    width: 80,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+      width: 80,
     },
-  }),
-)(TableRow);
+  },
+}))(TableRow);
 
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
+   
+    width: 80
   },
 });
 
@@ -41,7 +43,8 @@ export default function CustomizedTables(props) {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
+    
+    <TableContainer component={Paper} elevation={0} >
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
@@ -56,7 +59,7 @@ export default function CustomizedTables(props) {
           {props.purchases.map((row) => (
             <StyledTableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
-                {row.stockSymbol}
+                <EditStockModal symbol={row.stockSymbol} id={row.id} printPortfolio={props.printPortfolio}/> 
               </StyledTableCell>
               <StyledTableCell align="right">{row.purchasePrice}</StyledTableCell>
               <StyledTableCell align="right">{row.currentPrice}</StyledTableCell>

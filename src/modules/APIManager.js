@@ -42,7 +42,27 @@ const APIManager = {
             },
             body: JSON.stringify(stockObject),
         }).then(data => data.json())
-    }
+    },
+
+    deleteStockPurchase(id) { 
+        return fetch(`http://localhost:5002/purchases/${id}`, {
+        method: "DELETE",
+    }).then(data => data.json())
+},
+
+updateStockPurchase(editedStock) {
+    return fetch(`http://localhost:5002/purchases/${editedStock.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editedStock),
+    }).then((r) => r.json())
+},
+
+getStockPurchase(id) {
+    return fetch(`http://localhost:5002/purchases/${id}`).then((r) => r.json())
+}
 
 }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import NewStockForm from './NewStockForm';
+import APIManager from '../../modules/APIManager';
+import StockEditForm from './StockEditForm';
 
 
 function rand() {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function NewStockModal(props) {
+export default function EditStockModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -46,20 +47,28 @@ export default function NewStockModal(props) {
     setOpen(false);
   };
 
+
+const handleDelete = () => {
+    APIManager.deleteStockPurchase(props.id).then(() => props.printPortfolio())
+}
+
+
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">New Stock</h2>
+    <div style={modalStyle} className={classes.paper} id="edit-modal">
+      <h2 id="simple-modal-title">{props.symbol}</h2>
       <p id="simple-modal-description">
         Please enter a stock symbol, purchase price, number of shares, and date of purchase. 
       </p>
-      <NewStockForm printPortfolio={props.printPortfolio} handleClose={handleClose}/>
+      <StockEditForm id={props.id} printPortfolio={props.printPortfolio} handleClose={handleClose}/>
+      <button onClick={handleDelete}>Delete Purchase</button>
+      {/* <NewStockForm {...props} handleClose={handleClose}/> */}
     </div>
   );
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        New Stock
+      <button onClick={handleOpen}>
+        {props.symbol} 
       </button>
       <Modal
         open={open}

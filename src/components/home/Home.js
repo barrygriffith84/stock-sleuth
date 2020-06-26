@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import APIManager from '../../modules/APIManager';
 
 
 class Home extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null;
     clearStorage = () => localStorage.clear();
+
+   
 
     render() {
         return (

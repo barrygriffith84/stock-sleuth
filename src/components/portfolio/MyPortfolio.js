@@ -27,37 +27,38 @@ class MyPortfolio extends Component {
         //Grabs the user's stock purchases from the local JSON server
         APIManager.getPortfolio(JSON.parse(localStorage.getItem("credentials")).userId
         ).then((APIPurchases) => {
-
+            
             portfoltioPurchases = APIPurchases
 
             //Maps the stock symbols to an array
             portfolioSymbols = [...new Set(APIPurchases.map((stock) => stock.stockSymbol))];
-
+            
             this.setState({
                 stockPurchases: portfoltioPurchases,
             })
-            //Inputs the portfolio symbols into fetch call to get the stock prices from an external API.  Stores the return in the currentPrices array
-            APIManager.getPortfolioPrices(portfolioSymbols).then((stocks) => {
-                currentPrices = stocks.results
+            // Inputs the portfolio symbols into fetch call to get the stock prices from an external API.  Stores the return in the currentPrices array
+            // APIManager.getPortfolioPrices(portfolioSymbols).then((stocks) => {
+            //     console.log(stocks)
+            //     currentPrices = stocks.results
 
 
-                for (let i = 0; i < portfolioSymbols.length; i++) {
-                    let filteredPriceArray = currentPrices.filter((stock) => stock.symbol.toLowerCase() === portfolioSymbols[i])
+            //     for (let i = 0; i < portfolioSymbols.length; i++) {
+            //         let filteredPriceArray = currentPrices.filter((stock) => stock.symbol.toLowerCase() === portfolioSymbols[i])
 
-                    let filteredPortfolioArray = portfoltioPurchases.filter((stock) => stock.stockSymbol === portfolioSymbols[i])
+            //         let filteredPortfolioArray = portfoltioPurchases.filter((stock) => stock.stockSymbol === portfolioSymbols[i])
 
-                    filteredPortfolioArray.forEach((purchase) => {
-                        purchase.currentPrice = filteredPriceArray[0].lastPrice;
-                        combinedArray.push(purchase)
-                    })
-                }
+            //         filteredPortfolioArray.forEach((purchase) => {
+            //             purchase.currentPrice = filteredPriceArray[0].lastPrice;
+            //             combinedArray.push(purchase)
+            //         })
+            //     }
 
-                this.setState({
-                    stockPurchases: combinedArray,
-                    username: combinedArray[0].user.username,
-                    userId: combinedArray[0].userId
-                })
-            })
+            //     this.setState({
+            //         stockPurchases: combinedArray,
+            //         username: combinedArray[0].user.username,
+            //         userId: combinedArray[0].userId
+            //     })
+            // })
 
 
 
@@ -80,7 +81,7 @@ class MyPortfolio extends Component {
                 
                 <h1>{this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s Portfolio</h1>
                 <div className="test-container">
-                    <PortfolioTable purchases={this.state.stockPurchases} />
+                    <PortfolioTable purchases={this.state.stockPurchases} printPortfolio={this.printPortfolio} />
                 </div>
             </>
         )

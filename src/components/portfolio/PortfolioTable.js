@@ -14,11 +14,9 @@ const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
-    width: 80,
   },
   body: {
     fontSize: 14,
-    width: 80,
   },
 }))(TableCell);
 
@@ -26,7 +24,6 @@ const StyledTableRow = withStyles((theme) => ({
   root: {
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
-      width: 80,
     },
   },
 }))(TableRow);
@@ -34,8 +31,7 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-   
-    width: 80
+    minWidth: 700,
   },
 });
 
@@ -43,8 +39,7 @@ export default function CustomizedTables(props) {
   const classes = useStyles();
 
   return (
-    
-    <TableContainer component={Paper} elevation={0} >
+    <TableContainer component={Paper} >
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>

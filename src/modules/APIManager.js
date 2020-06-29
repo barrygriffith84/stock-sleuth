@@ -3,7 +3,7 @@ import APIKeys from './APIKeys'
 const APIManager = {
 
     symbolSearch(companyName) {
-        return fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${companyName}&apikey=${APIKeys.alphaKey}`).then((r) => { r.json() })
+        return fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${companyName}&apikey=${APIKeys.alphaKey}`).then((r) =>  r.json() )
     },
 
     getPortfolio(userId) {
@@ -32,7 +32,37 @@ const APIManager = {
             },
             body: JSON.stringify(newUser)
         }).then(data => data.json())
-    }
+    },
+
+    postNewStock(stockObject) {
+        return fetch(`http://localhost:5002/purchases`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(stockObject),
+        }).then(data => data.json())
+    },
+
+    deleteStockPurchase(id) { 
+        return fetch(`http://localhost:5002/purchases/${id}`, {
+        method: "DELETE",
+    }).then(data => data.json())
+},
+
+updateStockPurchase(editedStock) {
+    return fetch(`http://localhost:5002/purchases/${editedStock.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editedStock),
+    }).then((r) => r.json())
+},
+
+getStockPurchase(id) {
+    return fetch(`http://localhost:5002/purchases/${id}`).then((r) => r.json())
+}
 
 }
 

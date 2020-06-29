@@ -121,6 +121,14 @@
       "sharesTotal": 50,
       "date": "2020-06-17",
       "purchasePrice": 194.87
+    },
+    {
+      "id": 13,
+      "stockSymbol": "wmt",
+      "date": "2020-06-23",
+      "sharesTotal": 50,
+      "purchasePrice": 121.72,
+      "userId": 1
     }
   ],
   "funds": [

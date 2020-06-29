@@ -25,16 +25,16 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route path="/portfolio" render={(props) => {
-                   if (this.isAuthenticated()) {
-                    return <MyPortfolio />;
-                } else {
-                    return <Redirect to="/login" />;
-                }
+                    if (this.isAuthenticated()) {
+                        return <MyPortfolio {...props}/>;
+                    } else {
+                        return <Redirect to="/login" />;
+                    }
                 }} />
 
                 <Route path="/research" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <StockResearch />;
+                        return <StockResearch {...props}/>;
                     } else {
                         return <Redirect to="/login" />;
                     }
@@ -48,10 +48,12 @@ class ApplicationViews extends Component {
                     }
                 }} />
 
-                <Route path="/login" component={Login}  />
-                
-                <Route path="/register" component={Register}  />
-                
+
+
+                <Route path="/login" component={Login} />
+
+                <Route path="/register" component={Register} />
+
 
             </>
 

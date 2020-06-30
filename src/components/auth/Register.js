@@ -30,7 +30,7 @@ class Register extends Component {
             console.log("Step 1:",emailBool)
               //Checks to make sure all the fields in the form are filled out.
         if (this.state.email === "" || this.state.password === "" || this.state.username === "") {
-            window.alert("Hey dumbass, make sure the email, password, and username are all filled out in the form")
+            window.alert("Please fill out all inputs")
         } else {
 
             //Check to see if the emailArray is empty and sets the emailBool to true if the condition is met.  If true, that means there was no email match in the API.

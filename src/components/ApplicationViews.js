@@ -6,6 +6,7 @@ import StockResearch from "./research/StockResearch";
 import HedgeFund from "./hedge/HedgeFund";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
+import StockDetails from "./research/StockDetails";
 
 
 class ApplicationViews extends Component {
@@ -32,7 +33,7 @@ class ApplicationViews extends Component {
                     }
                 }} />
 
-                <Route path="/research" render={(props) => {
+                <Route exact path="/research" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <StockResearch {...props}/>;
                     } else {
@@ -47,6 +48,12 @@ class ApplicationViews extends Component {
                         return <Redirect to="/login" />;
                     }
                 }} />
+
+                <Route path="/research/details/:symbol" render={(props) => {
+                    
+                    return <StockDetails {...props} />
+                }}
+                    />
 
 
 

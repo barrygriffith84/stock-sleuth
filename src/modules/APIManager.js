@@ -62,7 +62,23 @@ updateStockPurchase(editedStock) {
 
 getStockPurchase(id) {
     return fetch(`http://localhost:5002/purchases/${id}`).then((r) => r.json())
+},
+
+getCompanyProfile(symbol) {
+    return fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${APIKeys.finnhub}`).then((r) => r.json())
+},
+
+getEarnings(symbol) {
+    return fetch(`https://finnhub.io/api/v1/stock/earnings?symbol=${symbol}&token=${APIKeys.finnhub}`).then((r) => r.json())
+},
+
+getStockMetrics(symbol) {
+    return fetch(`https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=price&token=${APIKeys.finnhub}`).then((r) => r.json())
 }
+
+
+
+
 
 }
 

@@ -26,6 +26,7 @@ class StockResearch extends Component {
         
     } else{
         APIManager.symbolSearch(searchInput).then((companies) => {
+            console.log(companies)
             this.setState({
                 searchResults: companies.bestMatches,
                 clickStatus: true,

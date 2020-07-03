@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import APIManager from '../../modules/APIManager';
+import SearchList from './SearchList';
 
 
 class StockResearch extends Component {
@@ -25,6 +26,7 @@ class StockResearch extends Component {
         
     } else{
         APIManager.symbolSearch(searchInput).then((companies) => {
+            console.log(companies)
             this.setState({
                 searchResults: companies.bestMatches,
                 clickStatus: true,
@@ -56,7 +58,8 @@ class StockResearch extends Component {
 
                     {/* The search results.  A conditional is used to print a message if the search button has been click and the search results are empty */}
                     <div className="stock-list-container">
-                            {this.state.searchResults.length === 0 && this.state.clickStatus === true ? ('Sorry, there are no results') : (this.state.searchResults.map((result) => <Link to="/newstock" key={result["1. symbol"]} symbol={result["1. symbol"]}> {result["1. symbol"]} :  {result["2. name"]}</Link>)) }
+                            {this.state.searchResults.length === 0 && this.state.clickStatus === true ? ('Sorry, there are no results') : this.state.searchResults.length > 0 ? (<SearchList searchResults={this.state.searchResults} />) : ""
+                        }
                         
                     </div>
 

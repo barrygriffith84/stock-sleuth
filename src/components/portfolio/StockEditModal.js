@@ -3,6 +3,8 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import APIManager from '../../modules/APIManager';
 import StockEditForm from './StockEditForm';
+import Button from '@material-ui/core/Button';
+
 
 
 function rand() {
@@ -60,16 +62,16 @@ const handleDelete = () => {
         Please enter a stock symbol, purchase price, number of shares, and date of purchase. 
       </p>
       <StockEditForm id={props.id} printPortfolio={props.printPortfolio} handleClose={handleClose}/>
-      <button onClick={handleDelete}>Delete Purchase</button>
-      {/* <NewStockForm {...props} handleClose={handleClose}/> */}
+      <Button variant="contained" color="primary" onClick={handleDelete}>Delete Purchase</Button>
+      
     </div>
   );
 
   return (
     <div>
-      <button onClick={handleOpen}>
+      <Button variant="contained" color="primary" onClick={handleOpen}>
         {props.symbol} 
-      </button>
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}

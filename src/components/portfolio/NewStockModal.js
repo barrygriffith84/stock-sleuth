@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import NewStockForm from './NewStockForm';
+import Button from '@material-ui/core/Button';
+
 
 
 function rand() {
@@ -58,9 +60,9 @@ export default function NewStockModal(props) {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
+      <Button variant="contained" color="primary" onClick={handleOpen}>
         New Stock
-      </button>
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}

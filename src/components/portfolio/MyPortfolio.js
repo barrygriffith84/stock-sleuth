@@ -4,13 +4,18 @@ import PortfolioTable from './PortfolioTable'
 import { Link } from "react-router-dom"
 import NewStockModal from "./NewStockModal"
 import CompositeTable from './CompositeTable'
-import LedgerTable from './LedgerTable'
-
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
 
 class MyPortfolio extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null;
     clearStorage = () => localStorage.clear();
 
+   
+      
+    
 
     state = {
         portfolioSymbols: [],
@@ -57,13 +62,13 @@ class MyPortfolio extends Component {
 
                 for (let i = 0; i < portfolioSymbols.length; i++) {
                     let filteredPriceArray = currentPrices.filter((stock) => stock.symbol.toLowerCase() === portfolioSymbols[i])
-                   
+
 
                     let filteredPortfolioArray = portfoltioPurchases.filter((stock) => stock.stockSymbol === portfolioSymbols[i])
 
                     filteredPortfolioArray.forEach((purchase) => {
                         purchase.currentPrice = filteredPriceArray[0].lastPrice;
-                        purchase.totalGainLoss = filteredPortfolioArray[0].sharesTotal * filteredPortfolioArray[0].purchasePrice - filteredPortfolioArray[0].sharesTotal * filteredPriceArray[0].lastPrice  
+                        purchase.totalGainLoss = filteredPortfolioArray[0].sharesTotal * filteredPortfolioArray[0].purchasePrice - filteredPortfolioArray[0].sharesTotal * filteredPriceArray[0].lastPrice
                         combinedArray.push(purchase)
                     })
                 }
@@ -93,7 +98,7 @@ class MyPortfolio extends Component {
                 }
 
                 this.setState({
-                        portfolioSymbols: portfolioSymbols,
+                    portfolioSymbols: portfolioSymbols,
                     stockPurchases: combinedArray,
                     username: combinedArray[0].user.username,
                     userId: combinedArray[0].userId,
@@ -116,24 +121,43 @@ class MyPortfolio extends Component {
 
         return (
             <>
+                
+               
+                <Grid container spacing={6} direction="row" justify="flex-end" alignItems="center">
+                <Grid item xs={6} >
+                    <NewStockModal printPortfolio={this.printPortfolio} />
+                    </Grid>
+                <Grid item xs={1} >
+                        {this.isAuthenticated() ? <Link to="/" onClick={this.clearStorage}>Logout</Link> : ""}
 
-                {this.isAuthenticated() ? <Link to="/" onClick={this.clearStorage}>Logout</Link> : ""}
-                <NewStockModal printPortfolio={this.printPortfolio} />
-                <h1>{this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s Portfolio</h1>
-                <div><p>Your portfolio is currently worth ${this.state.currentPortfolioTotal}</p>
-                    <p>You current total gain/loss is {this.state.currentPortfolioTotal - this.state.purchasePriceTotal} dollars</p>
-                </div>
-                <div className="test-container">
+                    </Grid>
+                   
+                    </Grid>
+
+                
+
+                    <Grid container spacing={0} direction="column" justify="center" alignItems="center">
+                    <Grid item xs={6} >
+                    <Container component={Paper} elevation={3} color="secondary">
+                        <h1 padding={5}>{this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s Portfolio</h1>
+                        <div><p>Your portfolio is currently worth ${this.state.currentPortfolioTotal}</p>
+                            <p>You current total gain/loss is {this.state.currentPortfolioTotal - this.state.purchasePriceTotal} dollars</p>
+                        </div>
+                        </Container>
+                    </Grid>
+                    <Grid item xs={12}>
+                       
+                    
+
+                    
+                        {this.state.ledgerBool === true ? (<><Button variant="contained" color="primary" onClick={this.tableSwitch} >Switch to Composite View</Button>  <PortfolioTable purchases={this.state.stockPurchases} printPortfolio={this.printPortfolio} /></>) : (<><Button variant="contained" color="primary" onClick={this.tableSwitch}>Switch to Ledger View</Button><CompositeTable purchases={this.state.compositePortfolio} /></>)}
+                    </Grid>
+                </Grid>
 
 
-                    {this.state.ledgerBool === true ? (<><button onClick={this.tableSwitch}>Switch to Composite View</button> <PortfolioTable purchases={this.state.stockPurchases} printPortfolio={this.printPortfolio} /></>) : (<><button onClick={this.tableSwitch}>Switch to Ledger View</button><CompositeTable purchases={this.state.compositePortfolio} /></>)}
 
 
 
-
-                    {/* <PortfolioTable purchases={this.state.stockPurchases} printPortfolio={this.printPortfolio} /> */}
-
-                </div>
             </>
         )
     }

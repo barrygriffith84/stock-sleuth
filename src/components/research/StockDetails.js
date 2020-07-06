@@ -4,6 +4,8 @@ import CompanyProfileList from './CompanyProfileList'
 import CompanyEarningsTable from './CompanyEarningsTable'
 import StockMetricsList from './StockMetricsList'
 import "./StockDetails.css"
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 
 
@@ -45,13 +47,29 @@ class StockDetails extends Component {
         
         return(
             <>
-            <h1>Stock Details</h1>
+            
+             <Grid container spacing={5} direction="column" justify="center" alignItems="center">
+             <h1>Stock Details</h1>
+             
         <style>.stock-widget width: 100; height: 500px</style>
             <iframe src={this.state.widgetURL} async title="test" allowtransparency='true' scrolling='no' className="stock-widget" ></iframe>
-            <CompanyProfileList profile={this.state.companyProfile}/>
+           
+            <Grid item xs={10} >
             <CompanyEarningsTable earnings={this.state.companyEarnings} />
-            <StockMetricsList stock={this.state.stockMetrics} />
+            </Grid>
+            <Grid container spacing={5} direction="row" justify="center" alignItems="center">
             
+            <Grid item xs={5} >
+            <StockMetricsList stock={this.state.stockMetrics} />
+            </Grid>
+            
+           
+
+              <Grid item xs={5} >
+            <CompanyProfileList profile={this.state.companyProfile}/>
+            </Grid>
+            </Grid>
+            </Grid>
             </>
         )
     }

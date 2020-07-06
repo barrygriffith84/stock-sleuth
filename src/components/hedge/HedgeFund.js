@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import HedgeFundSelect from './HedgeFundSelect'
 import APIManager from '../../modules/APIManager';
 import HedgeFundTable from './HedgeFundTable'
+import Grid from '@material-ui/core/Grid';
+
 
 class HedgeFund extends Component {
 
@@ -33,10 +35,18 @@ render () {
     console.log(this.state)
     return(
         <>
-         {this.isAuthenticated() ? <Link to="/"  onClick={this.clearStorage}>Logout</Link> : ""}
-        <h1>This is Hedge Fund!</h1>
+            <Grid container spacing={3} direction="row" justify="flex-end" alignItems="center">
+             <Grid item xs={1} >
+                {this.isAuthenticated() ? <Link to="/" onClick={this.clearStorage}>Logout</Link> : ""}
+                </Grid>
+                </Grid>
+
+                <Grid container spacing={3} direction="column" justify="center" alignItems="center">
+        <h1>Select a Hedge Fund</h1>
         <HedgeFundSelect SelectFund={this.selectHedgeFund}/>
         {this.state.hedgeFundArray.length > 0 ? (<HedgeFundTable hedgeFundArray={this.state.hedgeFundArray}/>): ""}
+        </Grid>
+
         </>
     )
 }

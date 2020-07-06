@@ -11,7 +11,6 @@ class NavBar extends Component {
             
             <header >
                 <h1 className="site-title">Stock Sleuth<br />
-                    <small>Big Money Hustlers Only!</small>
                 </h1>
                 <nav>
                     <ul className="container">

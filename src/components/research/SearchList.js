@@ -7,6 +7,8 @@ import Divider from '@material-ui/core/Divider';
 import { MemoryRouter as Router } from 'react-router';
 import { Link as RouterLink } from 'react-router-dom';
 
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -21,15 +23,19 @@ export default function SearchList(props) {
 
   return (
     <div className={classes.root}>
-    <h1>Search Results</h1>
-      <Divider />
+    
       <List component="nav" aria-label="stock search results">
         
        { props.searchResults.map((stock) => 
+        <>
         <ListItem button component={RouterLink} key={stock["1. symbol"]}  to={`/research/details/${stock["1. symbol"]}`}>
-          <ListItemText primary={stock["1. symbol"]} secondary={stock["2. name"]}  />
+          <ListItemText primary={stock["1. symbol"]} secondary={stock["2. name"]}  /> 
+          
         </ListItem>
+        <Divider />
+        </>
         )}
+          
       </List>
     </div>
   );

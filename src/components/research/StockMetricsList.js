@@ -4,6 +4,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,9 +46,13 @@ export default function StockMetricsList(props) {
   <ListItemText primary="52 Week Low Date" secondary={props.stock["52WeekLowDate"]} />
         </ListItem>
         <Divider />
+        
         <ListItem button>
+        <Tooltip title="A measure of stock market volitility relative to the market  A bet of 1.00 means the stock's volitility follows market volitility.  A beta 0f -1.00 means the stock's volitity is the inverse of the market's volitility."> 
   <ListItemText primary="Beta" secondary={props.stock["beta"]} />
+  </Tooltip>
         </ListItem>
+       
         <Divider />
    
       </List>

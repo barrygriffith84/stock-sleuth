@@ -14,7 +14,10 @@ class Home extends Component {
             <>
             {this.isAuthenticated() ? <Link to="/"  onClick={this.clearStorage}>Logout</Link> : ""}
             <div>
-            <h1>This is the home page!</h1>
+            <h1>Welcome to Stock Sleuth</h1>
+            <p>Track stock prices and changes to your stock portfolio in <strong>My Portfolio</strong></p>
+            <p>Use <strong>Stock Research</strong> to find information on different stocks</p>
+            <p>Find investment ideas by seeing the stock holdings from top-performing hedge funds in <strong>Hedge Funds</strong></p>
             </div>
             </>
         )

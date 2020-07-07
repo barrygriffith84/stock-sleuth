@@ -43,22 +43,28 @@ export default function CustomizedTables(props) {
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Stock Symbol</StyledTableCell>
-            <StyledTableCell align="right">Purchase Price</StyledTableCell>
-            <StyledTableCell align="right">Current Price</StyledTableCell>
-            <StyledTableCell align="right">Gain/Loss</StyledTableCell>
+            <StyledTableCell>Edit/Delete</StyledTableCell>
+            <StyledTableCell align="center">Stock Symbol</StyledTableCell>
+            <StyledTableCell align="center">Purchase Date</StyledTableCell>
+            <StyledTableCell align="center">Purchase Price</StyledTableCell>
+            <StyledTableCell align="center">Current Price</StyledTableCell>
+            <StyledTableCell align="center">Gain/Loss</StyledTableCell>
 
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.purchases.map((row) => (
+          {props.purchases.sort((a, b) => {
+  return new Date(a.date) - new Date(b.date)
+}).map((row) => (
             <StyledTableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
                 <EditStockModal symbol={row.stockSymbol} id={row.id} printPortfolio={props.printPortfolio}/> 
               </StyledTableCell>
-              <StyledTableCell align="right">{row.purchasePrice}</StyledTableCell>
-              <StyledTableCell align="right">{row.currentPrice}</StyledTableCell>
-          <StyledTableCell align="right">{(row.currentPrice - row.purchasePrice).toFixed(2)}</StyledTableCell>
+              <StyledTableCell align="center">{row.stockSymbol}</StyledTableCell>
+              <StyledTableCell align="center">{row.date}</StyledTableCell>
+              <StyledTableCell align="center">{row.purchasePrice}</StyledTableCell>
+              <StyledTableCell align="center">{row.currentPrice}</StyledTableCell>
+          <StyledTableCell align="center">{(row.currentPrice - row.purchasePrice).toFixed(2)}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

@@ -32,8 +32,8 @@ export default function ButtonAppBar() {
                         justify="center"
                         alignItems="center"
                     >
-                        <Tabs variant="fullWidth" indicatorColor="primary" >
-                            <Tab label="Stock Sleuth" component={Link} to="/" size="large"/>
+                        <Tabs variant="fullWidth" indicatorColor="primary" value={0} >
+                            <Tab label="Stock Sleuth" component={Link} to="/"  />
                             <Tab label="My Portfolio" component={Link} to="/portfolio" />
                             <Tab label="Stock Research" component={Link} to="/research" />
                             <Tab label="Hedge Funds" component={Link} to="/hedge" />

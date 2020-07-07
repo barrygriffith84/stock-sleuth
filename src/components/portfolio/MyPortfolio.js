@@ -114,7 +114,7 @@ class MyPortfolio extends Component {
     componentDidMount() {
 
         this.printPortfolio();
-
+        
     }
 
     render() {

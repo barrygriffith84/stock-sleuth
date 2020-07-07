@@ -7,8 +7,8 @@ class StockEditForm extends Component {
     state = {
         symbol: '',
         purchaseDate: '',
-        numberShares: null,
-        purchasePrice: null,
+        numberShares: '',
+        purchasePrice: '',
         loadingStatus: true,
     }
 

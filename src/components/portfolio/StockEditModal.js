@@ -4,7 +4,10 @@ import Modal from '@material-ui/core/Modal';
 import APIManager from '../../modules/APIManager';
 import StockEditForm from './StockEditForm';
 import Button from '@material-ui/core/Button';
-
+import EditRoundedIcon from '@material-ui/icons/EditRounded';
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import Link from '@material-ui/core/Link';
+import { IconButton } from '@material-ui/core';
 
 
 function rand() {
@@ -50,28 +53,27 @@ export default function EditStockModal(props) {
   };
 
 
-const handleDelete = () => {
+  const handleDelete = () => {
     APIManager.deleteStockPurchase(props.id).then(() => props.printPortfolio())
-}
+  }
 
 
   const body = (
     <div style={modalStyle} className={classes.paper} id="edit-modal">
       <h2 id="simple-modal-title">{props.symbol}</h2>
       <p id="simple-modal-description">
-        Please enter a stock symbol, purchase price, number of shares, and date of purchase. 
+        Please enter a stock symbol, purchase price, number of shares, and date of purchase.
       </p>
-      <StockEditForm id={props.id} printPortfolio={props.printPortfolio} handleClose={handleClose}/>
+      <StockEditForm id={props.id} printPortfolio={props.printPortfolio} handleClose={handleClose} />
       <Button variant="contained" color="primary" onClick={handleDelete}>Delete Purchase</Button>
-      
+
     </div>
   );
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleOpen}>
-        {props.symbol} 
-      </Button>
+     <Link href="#"> <EditRoundedIcon variant="contained" color="primary" onClick={handleOpen} /></Link>
+     <Link href="#"> <DeleteRoundedIcon variant="contained" color="primary" onClick={handleDelete}>Delete Purchase</DeleteRoundedIcon></Link>
       <Modal
         open={open}
         onClose={handleClose}

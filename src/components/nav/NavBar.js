@@ -1,29 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import { Link } from "react-router-dom"
-import './NavBar.css'
+import Grid from '@material-ui/core/Grid';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    title: {
+        flexGrow: 1,
+    },
+}));
 
+export default function ButtonAppBar() {
+    const classes = useStyles();
 
+    return (
+        <div className={classes.root}>
+            <AppBar position="static">
+                <Toolbar >
+                    <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <Tabs variant="fullWidth" indicatorColor="primary" >
+                            <Tab label="Stock Sleuth" component={Link} to="/" size="large"/>
+                            <Tab label="My Portfolio" component={Link} to="/portfolio" />
+                            <Tab label="Stock Research" component={Link} to="/research" />
+                            <Tab label="Hedge Funds" component={Link} to="/hedge" />
 
-class NavBar extends Component {
-    render() {
-        return (
-            
-            <header >
-                <h1 className="site-title">Stock Sleuth<br />
-                </h1>
-                <nav>
-                    <ul className="container">
-                        <li><Link className="nav-link" to="/">Home</Link></li>
-                        <li><Link className="nav-link" to="/portfolio">My Portfolio</Link></li> 
-                        <li><Link className="nav-link" to="/research">Research Stocks</Link></li>
-                        <li><Link className="nav-link" to="/hedge">Hedge Funds</Link></li>
-                    </ul>
-                </nav>
-            </header>
-        )
-        }
-    }
-
-
-        export default NavBar
+                        </Tabs>
+                    </Grid>
+                </Toolbar>
+            </AppBar>
+        </div>
+    );
+}

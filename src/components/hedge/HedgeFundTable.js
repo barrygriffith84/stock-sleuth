@@ -8,14 +8,17 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 const columns = [
-  { id: 'name', label: 'Name', minWidth: 150 },
+  { id: 'name', label: 'Name', minWidth: 150, description: 'The name of the security.', },
   {
     id: 'shares',
     label: 'Shares',
     minWidth: 170,
     align: 'right',
+    description: 'The number of shares in the security that the hedge fund owns.',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
@@ -23,14 +26,11 @@ const columns = [
     label: 'Value\u00a0(1000s)',
     minWidth: 170,
     align: 'right',
+    description: 'The total value of all of the shares the company owns in that specific security.',
     format: (value) => value.toLocaleString('en-US'),
   },
  
 ];
-
-
-
-
 
 const useStyles = makeStyles({
   root: {
@@ -62,18 +62,20 @@ export default function HedgeFundTable(props) {
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell
+               <Tooltip title={column.description}>
+               <TableCell
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
                 >
                   {column.label}
                 </TableCell>
+                </Tooltip>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.hedgeFundArray.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+            {props.hedgeFundArray.sort((a,b) => b.value - a.value).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.symbol}>
                   {columns.map((column) => {

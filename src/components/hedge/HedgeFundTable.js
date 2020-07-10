@@ -75,7 +75,7 @@ export default function HedgeFundTable(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.hedgeFundArray.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+            {props.hedgeFundArray.sort((a,b) => b.value - a.value).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.symbol}>
                   {columns.map((column) => {

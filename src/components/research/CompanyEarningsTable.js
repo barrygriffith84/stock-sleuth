@@ -7,6 +7,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -42,11 +44,15 @@ export default function CompanyEarningsTable(props) {
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>Date</StyledTableCell>
-                        <StyledTableCell align="right">Actual EPS</StyledTableCell>
-                        <StyledTableCell align="right">Estimated EPS</StyledTableCell>
-                  
-
+                        <Tooltip title="The end date of the quarter the financial statements represent.">
+                            <StyledTableCell>Date</StyledTableCell>
+                        </Tooltip>
+                        <Tooltip title="Earnings Per Share (EPS) is the net income of the company divided by the shares oustanding.  Actual EPS is the a real accounting of the company's EPS.">
+                            <StyledTableCell align="right">Actual EPS</StyledTableCell>
+                        </Tooltip>
+                        <Tooltip title="Earnings Per Share (EPS) is the net income of the company divided by the shares oustanding.  Estimated EPS is the an analyst's estimate of a company's EPS in an upcoming quarter.">
+                            <StyledTableCell align="right">Estimated EPS</StyledTableCell>
+                        </Tooltip>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -56,7 +62,7 @@ export default function CompanyEarningsTable(props) {
                             </StyledTableCell>
                             <StyledTableCell align="right">{row.actual}</StyledTableCell>
                             <StyledTableCell align="right">{row.estimate}</StyledTableCell>
-                           
+
 
                         </StyledTableRow>
                     ))}

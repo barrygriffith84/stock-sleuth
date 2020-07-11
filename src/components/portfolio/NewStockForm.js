@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import APIManager from '../../modules/APIManager';
+import Button from '@material-ui/core/Button';
 
 
 class NewStockForm extends Component{
@@ -25,7 +26,7 @@ class NewStockForm extends Component{
         } else {
             this.setState({ loadingStatus: true });
             const newStock = {
-                stockSymbol: this.state.symbol,
+                stockSymbol: this.state.symbol.toUpperCase(),
                 purchasePrice: parseInt(this.state.purchasePrice),
                 sharesTotal: parseInt(this.state.numberShares),
                 date: this.state.purchaseDate,
@@ -79,11 +80,14 @@ class NewStockForm extends Component{
                         <label htmlFor="purchaseDate">Date of Purchase</label>
                     </div>
                     <div className="alignRight">
-                        <button
+                        <Button
                         type="button"
+                        variant="contained" 
+                        color="primary"
+                        size="small"
                         disabled={this.state.loadingStatus}
                         onClick={this.createNewStock}
-                        >Submit</button>
+                        >Submit</Button>
                     </div>
                 </fieldset>
             </form>

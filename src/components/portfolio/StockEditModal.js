@@ -65,7 +65,7 @@ export default function EditStockModal(props) {
         Please enter a stock symbol, purchase price, number of shares, and date of purchase.
       </p>
       <StockEditForm id={props.id} printPortfolio={props.printPortfolio} handleClose={handleClose} />
-      <Button variant="contained" color="primary" onClick={handleDelete}>Delete Purchase</Button>
+      
 
     </div>
   );

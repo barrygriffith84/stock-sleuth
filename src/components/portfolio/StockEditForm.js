@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
+import Button from '@material-ui/core/Button';
 
 
 class StockEditForm extends Component {
@@ -24,7 +25,7 @@ class StockEditForm extends Component {
           this.setState({ laodingStatus: true});
           const editedStock = {
               id: parseInt(this.props.id),
-              stockSymbol: this.state.symbol,
+              stockSymbol: this.state.symbol.toUpperCase(),
               date: this.state.purchaseDate,
               sharesTotal: parseInt(this.state.numberShares),
               purchasePrice: parseFloat(this.state.purchasePrice),
@@ -102,14 +103,16 @@ APIManager.updateStockPurchase(editedStock).then(() =>
                 </div>
                 
                 <div className="alignRight">
-                  <button
-                    type="button"
+                  <Button
+                  variant="contained" 
+                  color="primary"
+                  size="small"
                     disabled={this.state.loadingStatus}
                     onClick={this.updateExistingStock}
-                    className="btn btn-primary"
+                    
                   >
                     Submit Edit
-                  </button>
+                  </Button>
                 </div>
               </fieldset>
             </form>

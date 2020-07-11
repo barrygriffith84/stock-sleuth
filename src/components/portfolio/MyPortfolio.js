@@ -61,7 +61,7 @@ class MyPortfolio extends Component {
                 currentPrices = stocks.results
 
                 for (let i = 0; i < portfolioSymbols.length; i++) {
-                    let filteredPriceArray = currentPrices.filter((stock) => stock.symbol.toLowerCase() === portfolioSymbols[i])
+                    let filteredPriceArray = currentPrices.filter((stock) => stock.symbol === portfolioSymbols[i])
 
 
                     let filteredPortfolioArray = portfoltioPurchases.filter((stock) => stock.stockSymbol === portfolioSymbols[i])
@@ -106,7 +106,7 @@ class MyPortfolio extends Component {
                     purchasePriceTotal: purchasePriceTotal,
                     currentPortfolioTotal: currentTotalPortfolio,
                 })
-                console.log(this.state)
+               
             })
         })
     }

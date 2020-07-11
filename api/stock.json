@@ -29,7 +29,7 @@
     {
       "id": 1,
       "userId": 3,
-      "stockSymbol": "msft",
+      "stockSymbol": "MSFT",
       "sharesTotal": 100,
       "date": "2020-06-17",
       "purchasePrice": 194.14
@@ -37,7 +37,7 @@
     {
       "id": 2,
       "userId": 1,
-      "stockSymbol": "msft",
+      "stockSymbol": "MSFT",
       "sharesTotal": 50,
       "date": "2020-06-17",
       "purchasePrice": 194
@@ -45,7 +45,7 @@
     {
       "id": 3,
       "userId": 2,
-      "stockSymbol": "wmt",
+      "stockSymbol": "WMT",
       "sharesTotal": 25,
       "date": "2020-06-17",
       "purchasePrice": 119.07
@@ -53,7 +53,7 @@
     {
       "id": 4,
       "userId": 4,
-      "stockSymbol": "spy",
+      "stockSymbol": "SPY",
       "sharesTotal": 30,
       "date": "2020-06-17",
       "purchasePrice": 311.69
@@ -61,7 +61,7 @@
     {
       "id": 5,
       "userId": 4,
-      "stockSymbol": "wmt",
+      "stockSymbol": "WMT",
       "sharesTotal": 50,
       "date": "2020-06-16",
       "purchasePrice": 118.87
@@ -69,7 +69,7 @@
     {
       "id": 6,
       "userId": 3,
-      "stockSymbol": "spy",
+      "stockSymbol": "SPY",
       "sharesTotal": 30,
       "date": "2020-06-15",
       "purchasePrice": 298.77
@@ -77,7 +77,7 @@
     {
       "id": 7,
       "userId": 1,
-      "stockSymbol": "wmt",
+      "stockSymbol": "WMT",
       "sharesTotal": 25,
       "date": "2020-06-15",
       "purchasePrice": 118.9
@@ -85,7 +85,7 @@
     {
       "id": 8,
       "userId": 2,
-      "stockSymbol": "spy",
+      "stockSymbol": "SPY",
       "sharesTotal": 75,
       "date": "2020-06-16",
       "purchasePrice": 298.77
@@ -93,7 +93,7 @@
     {
       "id": 9,
       "userId": 1,
-      "stockSymbol": "spy",
+      "stockSymbol": "SPY",
       "sharesTotal": 50,
       "date": "2020-06-17",
       "purchasePrice": 312.28
@@ -101,7 +101,7 @@
     {
       "id": 10,
       "userId": 2,
-      "stockSymbol": "msft",
+      "stockSymbol": "MSFT",
       "sharesTotal": 25,
       "date": "2020-06-17",
       "purchasePrice": 194.81
@@ -109,7 +109,7 @@
     {
       "id": 11,
       "userId": 3,
-      "stockSymbol": "wmt",
+      "stockSymbol": "WMT",
       "sharesTotal": 75,
       "date": "2020-06-17",
       "purchasePrice": 119.33
@@ -117,17 +117,25 @@
     {
       "id": 12,
       "userId": 4,
-      "stockSymbol": "msft",
+      "stockSymbol": "MSFT",
       "sharesTotal": 50,
       "date": "2020-06-17",
       "purchasePrice": 194.87
     },
     {
       "id": 13,
-      "stockSymbol": "wmt",
+      "stockSymbol": "WMT",
       "date": "2020-06-23",
       "sharesTotal": 50,
       "purchasePrice": 121.72,
+      "userId": 1
+    },
+    {
+      "id": 14,
+      "stockSymbol": "WMT",
+      "date": "2020-07-11",
+      "sharesTotal": 1,
+      "purchasePrice": 1,
       "userId": 1
     }
   ],

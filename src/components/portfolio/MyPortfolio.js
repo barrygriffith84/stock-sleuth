@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
+import PieChart from './PieChart'
 
 class MyPortfolio extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null;
@@ -106,6 +107,7 @@ class MyPortfolio extends Component {
                     purchasePriceTotal: purchasePriceTotal,
                     currentPortfolioTotal: currentTotalPortfolio,
                 })
+                console.log(this.state)
                
             })
         })
@@ -126,6 +128,9 @@ class MyPortfolio extends Component {
                 <Grid container spacing={6} direction="row" justify="flex-end" alignItems="center">
                 <Grid item xs={6} >
                     <NewStockModal printPortfolio={this.printPortfolio} />
+                    </Grid>
+                    <Grid item xs={6} >
+                    <PieChart compositePortfolio={this.state.compositePortfolio}/>
                     </Grid>
                 <Grid item xs={1} >
                         {this.isAuthenticated() ? <Link to="/" onClick={this.clearStorage}>Logout</Link> : ""}

@@ -131,12 +131,68 @@
       "userId": 1
     },
     {
-      "id": 14,
-      "stockSymbol": "WMT",
-      "date": "2020-07-11",
-      "sharesTotal": 1,
-      "purchasePrice": 1,
-      "userId": 1
+      "stockSymbol": "TSLA",
+      "purchasePrice": 1544,
+      "sharesTotal": 10,
+      "date": "2020-07-10",
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "stockSymbol": "AMZN",
+      "purchasePrice": 3200,
+      "sharesTotal": 5,
+      "date": "2020-07-10",
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "stockSymbol": "QQQ",
+      "purchasePrice": 263,
+      "sharesTotal": 35,
+      "date": "2020-07-10",
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "stockSymbol": "FDX",
+      "purchasePrice": 158,
+      "sharesTotal": 30,
+      "date": "2020-07-10",
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "stockSymbol": "LULU",
+      "purchasePrice": 314,
+      "sharesTotal": 25,
+      "date": "2020-07-10",
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "stockSymbol": "INTC",
+      "purchasePrice": 59,
+      "sharesTotal": 50,
+      "date": "2020-07-10",
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "stockSymbol": "ATVI",
+      "purchasePrice": 81,
+      "sharesTotal": 25,
+      "date": "2020-07-10",
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "stockSymbol": "DIS",
+      "purchasePrice": 119,
+      "sharesTotal": 40,
+      "date": "2020-07-10",
+      "userId": 1,
+      "id": 21
     }
   ],
   "funds": [

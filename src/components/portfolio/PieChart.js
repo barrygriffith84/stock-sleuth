@@ -69,7 +69,7 @@ export default function PieChart(props) {
           }
         ]
       }
-  console.log(props)
+  
     return (
       <div>
         <Pie
@@ -78,11 +78,11 @@ export default function PieChart(props) {
             title:{
               display:true,
               text:'Portfolio Composition',
-              fontSize:20
+              fontSize:30
             },
             legend:{
               display:true,
-              position:'bottom'
+              position:'right'
             }
           }}
         />

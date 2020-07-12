@@ -185,14 +185,6 @@
       "date": "2020-07-10",
       "userId": 1,
       "id": 20
-    },
-    {
-      "stockSymbol": "DIS",
-      "purchasePrice": 119,
-      "sharesTotal": 40,
-      "date": "2020-07-10",
-      "userId": 1,
-      "id": 21
     }
   ],
   "funds": [

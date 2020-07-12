@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import APIManager from '../../modules/APIManager'
 import PortfolioTable from './PortfolioTable'
-import { Link } from "react-router-dom"
 import NewStockModal from "./NewStockModal"
 import CompositeTable from './CompositeTable'
 import Grid from '@material-ui/core/Grid';
@@ -10,13 +9,16 @@ import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import PieChart from './PieChart'
 
+
+
+
 class MyPortfolio extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null;
     clearStorage = () => localStorage.clear();
 
-   
-      
-    
+
+
+
 
     state = {
         portfolioSymbols: [],
@@ -107,8 +109,8 @@ class MyPortfolio extends Component {
                     purchasePriceTotal: purchasePriceTotal,
                     currentPortfolioTotal: currentTotalPortfolio,
                 })
-                console.log(this.state)
-               
+              
+
             })
         })
     }
@@ -116,45 +118,46 @@ class MyPortfolio extends Component {
     componentDidMount() {
 
         this.printPortfolio();
-        
+
     }
 
     render() {
 
         return (
             <>
-                
-               
-                <Grid container spacing={6} direction="row" justify="flex-end" alignItems="center">
-                <Grid item xs={6} >
-                    <NewStockModal printPortfolio={this.printPortfolio} />
-                    </Grid>
-                    <Grid item xs={6} >
-                    <PieChart compositePortfolio={this.state.compositePortfolio}/>
-                    </Grid>
-                <Grid item xs={1} >
-                        {this.isAuthenticated() ? <Link to="/" onClick={this.clearStorage}>Logout</Link> : ""}
 
-                    </Grid>
-                   
-                    </Grid>
 
-                
+<Grid container spacing={0} direction="row" justify="flex-end" alignItems="center" >
+             <Grid item xs={1} >
+                {this.isAuthenticated() ? <Button variant="outlined" color="primary" onClick={this.clearStorage}>Logout</Button> : ""}
+                </Grid>
+                </Grid>
 
-                    <Grid container spacing={0} direction="column" justify="center" alignItems="center">
-                    <Grid item xs={6} >
-                    <Container component={Paper} elevation={3} color="secondary">
-                        <h1 padding={5}>{this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s Portfolio</h1>
-                        <div><p>Your portfolio is currently worth ${this.state.currentPortfolioTotal}</p>
-                            <p>You current total gain/loss is {this.state.currentPortfolioTotal - this.state.purchasePriceTotal} dollars</p>
-                        </div>
+
+
+                <Grid container spacing={10} direction="column" justify="space-between" alignItems="center">
+              
+                <Grid container spacing={0} direction="row" justify="center" alignItems="center">
+
+                    <Grid item xs={4} >
+                        <Container component={Paper} elevation={3} color="secondary">
+                            <h1 padding={5}>{this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s Portfolio</h1>
+                            <div><p>Your portfolio is currently worth ${this.state.currentPortfolioTotal.toFixed(2)}</p>
+                                <p>You current total gain/loss is ${(this.state.currentPortfolioTotal - this.state.purchasePriceTotal).toFixed(2)} dollars</p>
+                            </div>
                         </Container>
+                        
                     </Grid>
-                    <Grid item xs={12}>
-                       
-                    
+                    <Grid item xs={6} >
+                        <PieChart compositePortfolio={this.state.compositePortfolio} />
+                    </Grid>
+                    </Grid>
 
-                    
+                    <Grid item xs={3} >
+                        <NewStockModal printPortfolio={this.printPortfolio} />
+                    </Grid>
+
+                    <Grid item xs={12}>
                         {this.state.ledgerBool === true ? (<><Button variant="contained" color="primary" onClick={this.tableSwitch} >Switch to Composite View</Button>  <PortfolioTable purchases={this.state.stockPurchases} printPortfolio={this.printPortfolio} /></>) : (<><Button variant="contained" color="primary" onClick={this.tableSwitch}>Switch to Ledger View</Button><CompositeTable purchases={this.state.compositePortfolio} /></>)}
                     </Grid>
                 </Grid>

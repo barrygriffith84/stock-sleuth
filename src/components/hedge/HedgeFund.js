@@ -4,6 +4,7 @@ import HedgeFundSelect from './HedgeFundSelect'
 import APIManager from '../../modules/APIManager';
 import HedgeFundTable from './HedgeFundTable'
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 
 class HedgeFund extends Component {
@@ -35,10 +36,10 @@ render () {
     console.log(this.state)
     return(
         <>
-            <Grid container spacing={3} direction="row" justify="flex-end" alignItems="center">
-             <Grid item xs={1} >
-                {this.isAuthenticated() ? <Link to="/" onClick={this.clearStorage}>Logout</Link> : ""}
-                </Grid>
+            <Grid container spacing={0} direction="row" justify="flex-end" alignItems="center" >
+                    <Grid item xs={1} >
+                        {this.isAuthenticated() ? <Button variant="outlined" color="primary" onClick={this.clearStorage}>Logout</Button> : ""}
+                    </Grid>
                 </Grid>
 
                 <Grid container spacing={3} direction="column" justify="center" alignItems="center">

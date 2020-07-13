@@ -48,10 +48,10 @@ class StockResearch extends Component {
 
         return (
             <>
-             <Grid container spacing={3} direction="row" justify="flex-end" alignItems="center">
-             <Grid item xs={1} >
-                {this.isAuthenticated() ? <Link to="/" onClick={this.clearStorage}>Logout</Link> : ""}
-                </Grid>
+           <Grid container spacing={0} direction="row" justify="flex-end" alignItems="center" >
+                    <Grid item xs={1} >
+                        {this.isAuthenticated() ? <Button variant="outlined" color="primary" onClick={this.clearStorage}>Logout</Button> : ""}
+                    </Grid>
                 </Grid>
 
              <Grid container spacing={3} direction="row" justify="center" alignItems="center">
@@ -71,7 +71,7 @@ class StockResearch extends Component {
 
                     
 
-                    <Grid item xs={12} >
+                    <Grid item xs={16} >
                     {/* The search results.  A conditional is used to print a message if the search button has been click and the search results are empty */}
                     <div className="stock-list-container">
                             {this.state.searchResults.length === 0 && this.state.clickStatus === true ? ('Sorry, there are no results') : this.state.searchResults.length > 0 ? (<SearchList searchResults={this.state.searchResults} />) : ""

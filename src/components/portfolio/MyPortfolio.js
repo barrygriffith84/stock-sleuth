@@ -109,7 +109,7 @@ class MyPortfolio extends Component {
                     purchasePriceTotal: purchasePriceTotal,
                     currentPortfolioTotal: currentTotalPortfolio,
                 })
-              
+
 
             })
         })
@@ -127,38 +127,60 @@ class MyPortfolio extends Component {
             <>
 
 
-<Grid container spacing={0} direction="row" justify="flex-end" alignItems="center" >
-             <Grid item xs={1} >
-                {this.isAuthenticated() ? <Button variant="outlined" color="primary" onClick={this.clearStorage}>Logout</Button> : ""}
-                </Grid>
+                <Grid container spacing={0} direction="row" justify="flex-end" alignItems="center" >
+                    <Grid item xs={1} >
+                        {this.isAuthenticated() ? <Button variant="outlined" color="primary" onClick={this.clearStorage}>Logout</Button> : ""}
+                    </Grid>
                 </Grid>
 
 
 
                 <Grid container spacing={10} direction="column" justify="space-between" alignItems="center">
-              
-                <Grid container spacing={0} direction="row" justify="center" alignItems="center">
 
-                    <Grid item xs={4} >
-                        <Container component={Paper} elevation={3} color="secondary">
-                            <h1 padding={5}>{this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s Portfolio</h1>
-                            <div><p>Your portfolio is currently worth ${this.state.currentPortfolioTotal.toFixed(2)}</p>
-                                <p>You current total gain/loss is ${(this.state.currentPortfolioTotal - this.state.purchasePriceTotal).toFixed(2)} dollars</p>
-                            </div>
-                        </Container>
-                        
-                    </Grid>
-                    <Grid item xs={6} >
-                        <PieChart compositePortfolio={this.state.compositePortfolio} />
-                    </Grid>
+                    <Grid container spacing={0} direction="row" justify="center" alignItems="center">
+
+                        <Grid item xs={4} >
+                            <Container component={Paper} elevation={3} color="secondary">
+                                <h1 padding={5}>{this.state.username.charAt(0).toUpperCase() + this.state.username.slice(1)}'s Portfolio</h1>
+                                <div><p>Your portfolio is currently worth ${this.state.currentPortfolioTotal.toFixed(2)}</p>
+                                    <p>You current total gain/loss is ${(this.state.currentPortfolioTotal - this.state.purchasePriceTotal).toFixed(2)} dollars</p>
+                                </div>
+                            </Container>
+
+                        </Grid>
+                        <Grid item xs={6} >
+                            <PieChart compositePortfolio={this.state.compositePortfolio} />
+                        </Grid>
                     </Grid>
 
-                    <Grid item xs={3} >
-                        <NewStockModal printPortfolio={this.printPortfolio} />
-                    </Grid>
+
 
                     <Grid item xs={12}>
-                        {this.state.ledgerBool === true ? (<><Button variant="contained" color="primary" onClick={this.tableSwitch} >Switch to Composite View</Button>  <PortfolioTable purchases={this.state.stockPurchases} printPortfolio={this.printPortfolio} /></>) : (<><Button variant="contained" color="primary" onClick={this.tableSwitch}>Switch to Ledger View</Button><CompositeTable purchases={this.state.compositePortfolio} /></>)}
+                        {this.state.ledgerBool === true ? (<Grid container spacing={0} direction="row" justify="flex-end" alignItems="center">  <Grid item xs={4} >
+                            <NewStockModal printPortfolio={this.printPortfolio} />
+                        </Grid>
+                            <Grid item xs={3}>
+                                <Button variant="contained" color="primary" onClick={this.tableSwitch} >Switch to Composite View</Button>
+                            </Grid>
+
+
+
+                            <PortfolioTable purchases={this.state.stockPurchases} printPortfolio={this.printPortfolio} />  </Grid>) :
+
+
+                            (<Grid container spacing={0} direction="row" justify="flex-end" alignItems="center">
+
+                                <Grid item xs={4} >
+                                    <NewStockModal printPortfolio={this.printPortfolio} />
+                                </Grid>
+
+                                <Grid item xs={3}>
+                                    <Button variant="contained" color="primary" onClick={this.tableSwitch}>Switch to Ledger View</Button>
+                                </Grid>
+
+
+                                <CompositeTable purchases={this.state.compositePortfolio} /> </Grid>
+                            )}
                     </Grid>
                 </Grid>
 

@@ -75,7 +75,7 @@ class NewStockForm extends Component{
                         onChange={this.handleFieldChange}
                         id="purchaseDate"
                         placeholder="Date of Purchase"
-                      
+                       
                         />
                         <label htmlFor="purchaseDate">Date of Purchase</label>
                     </div>

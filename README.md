@@ -11,6 +11,17 @@ Stock Sleuth is an investing app for people interested in learning stock trading
 4.  In a seperate gitbash window, navigate to the API folder and run **json-server -p 5002 -w stock.json**
 5.  In the root folder start the app by running **npm start**
 
+## How to Use
+Register an account and log in.
+
+### My Stocks
+In the my stocks page you can track stock prices.  Click the new stock add the symbol, number of shars, price, and date to begin tracking a new stock.  The My Stocks page offers to different table views.  The default view is the Ledger View which tracks the price of a single share of each stock you have stored.  Click on the Composite View to see the total price of all the shares you own in a stock.
+
+### Stock Research
+Enter the name of a publicly traded company into the search bar and click on a results to see pricing, EPS, and company information about a stock.
+
+### Hedge Funds
+Select a hedge fund from the drop-down list to see the quarterly stock holdings from one of the top performing hedge funds from last year. 
 
 
 

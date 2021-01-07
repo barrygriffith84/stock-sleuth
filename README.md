@@ -21,16 +21,23 @@ https://www.youtube.com/watch?v=8ITCrvrkRXQ&feature=emb_title
 4.  In a seperate gitbash window, navigate to the API folder and run **json-server -p 5002 -w stock.json**
 5.  In the root folder start the app by running **npm start**
 
-## How to Use
-Register an account and log in.
+## Walkthrough
+ Register an account and log in
+ 
+## Homepage
+<img src="https://user-images.githubusercontent.com/62182071/103853413-f960c400-507b-11eb-8cfa-46f98b85a242.png">
 
 ### My Stocks
 In the my stocks page you can track stock prices.  Click the new stock add the symbol, number of shars, price, and date to begin tracking a new stock.  The My Stocks page offers to different table views.  The default view is the Ledger View which tracks the price of a single share of each stock you have stored.  Click on the Composite View to see the total price of all the shares you own in a stock.
 
 ### Stock Research
+<img src="https://user-images.githubusercontent.com/62182071/103853477-24e3ae80-507c-11eb-9fc0-bc0adf7a5eec.png">
+
 Enter the name of a publicly traded company into the search bar and click on a results to see pricing, EPS, and company information about a stock.
 
 ### Hedge Funds
+<img src="https://user-images.githubusercontent.com/62182071/103853529-4ba1e500-507c-11eb-92cc-342e756eef21.png">
+
 Select a hedge fund from the drop-down list to see the quarterly stock holdings from one of the top performing hedge funds from last year. 
 
 

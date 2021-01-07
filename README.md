@@ -6,7 +6,7 @@ Stock Sleuth is an investing app for people interested in learning stock trading
 ## Video Walkthrough
 https://www.youtube.com/watch?v=8ITCrvrkRXQ&feature=emb_title
 
-## !!! You need to sign up for multiple API Keys for my project to work.  I can send the keys to any employer that contacts me !!!
+## !!! You need to sign up for multiple API Keys.  I can send the keys to any employer that contacts me !!!
 ### Keys you will need:
 1.  https://www.alphavantage.co/
 2.  https://www.barchart.com/ondemand/api

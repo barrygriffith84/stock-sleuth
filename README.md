@@ -27,7 +27,9 @@ https://www.youtube.com/watch?v=8ITCrvrkRXQ&feature=emb_title
 ## Homepage
 <img src="https://user-images.githubusercontent.com/62182071/103853413-f960c400-507b-11eb-8cfa-46f98b85a242.png">
 
-### My Stocks
+### My Portfolio
+<img src="https://user-images.githubusercontent.com/62182071/106316045-20a15000-623a-11eb-9bc8-363f362fa883.png">
+
 In the my stocks page you can track stock prices.  Click the new stock add the symbol, number of shars, price, and date to begin tracking a new stock.  The My Stocks page offers to different table views.  The default view is the Ledger View which tracks the price of a single share of each stock you have stored.  Click on the Composite View to see the total price of all the shares you own in a stock.
 
 ### Stock Research

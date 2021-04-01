@@ -24,7 +24,7 @@ https://www.youtube.com/watch?v=8ITCrvrkRXQ&feature=emb_title
 ## Walkthrough
  Register an account and log in
  
-## Homepage
+### Homepage
 <img src="https://user-images.githubusercontent.com/62182071/103853413-f960c400-507b-11eb-8cfa-46f98b85a242.png">
 
 ### My Portfolio
